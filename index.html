@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeekFigurinhas | Loja Online</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #ffd400;
+      border-bottom: 4px solid #d71920;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .top-bar {
+      background: #d71920;
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      color: #d71920;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #111;
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 500px;
+      display: flex;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #222;
+      border-right: none;
+      border-radius: 6px 0 0 6px;
+      outline: none;
+    }
+
+    .search-box button {
+      padding: 12px 18px;
+      border: 2px solid #222;
+      background: #222;
+      color: white;
+      font-weight: bold;
+      border-radius: 0 6px 6px 0;
+      cursor: pointer;
+    }
+
+    .menu {
+      background: #222;
+    }
+
+    .menu ul {
+      max-width: 1200px;
+      margin: auto;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px 20px;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .menu a:hover {
+      color: #ffd400;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .hero-content {
+      min-height: 360px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #d71920, #ff7a00, #ffd400);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px;
+      color: white;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    }
+
+    .hero-text {
+      max-width: 520px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      background: #222;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #000;
+    }
+
+    .hero-card {
+      background: white;
+      color: #222;
+      width: 250px;
+      min-height: 300px;
+      border-radius: 16px;
+      padding: 20px;
+      transform: rotate(5deg);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+      text-align: center;
+    }
+
+    .hero-card .fake-img {
+      height: 170px;
+      border-radius: 12px;
+      background: repeating-linear-gradient(
+        45deg,
+        #ffd400,
+        #ffd400 10px,
+        #d71920 10px,
+        #d71920 20px
+      );
+      margin-bottom: 18px;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+      border-left: 6px solid #d71920;
+      padding-left: 12px;
+      text-transform: uppercase;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: 0.2s;
+      border: 1px solid #e6e6e6;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+    }
+
+    .product-img {
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 54px;
+      background: #f1f1f1;
+    }
+
+    .badge {
+      position: absolute;
+      background: #d71920;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 0 0 8px 0;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .product-info h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+      min-height: 42px;
+    }
+
+    .product-info p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: #d71920;
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .buy-btn {
+      width: 100%;
+      border: none;
+      padding: 12px;
+      background: #ffd400;
+      color: #222;
+      font-weight: 900;
+      border-radius: 8px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .buy-btn:hover {
+      background: #f0c600;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .category {
+      background: #222;
+      color: white;
+      border-radius: 14px;
+      padding: 30px;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    }
+
+    .category h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: #ffd400;
+    }
+
+    .newsletter {
+      background: #d71920;
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+      margin-top: 50px;
+    }
+
+    .newsletter h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .newsletter form {
+      margin: 24px auto 0;
+      max-width: 520px;
+      display: flex;
+    }
+
+    .newsletter input {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+    }
+
+    .newsletter button {
+      padding: 14px 20px;
+      border: none;
+      background: #ffd400;
+      color: #222;
+      font-weight: 900;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        flex-direction: column;
+      }
+
+      .search-box {
+        width: 100%;
+      }
+
+      .menu ul {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 35px;
+        padding: 35px 25px;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .categories {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter form {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .newsletter input,
+      .newsletter button {
+        border-radius: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-bar">Frete grátis acima de R$ 199,90 | Novidades toda semana</div>
+
+    <div class="nav">
+      <div class="logo">Geek<span>Figurinhas</span></div>
+
+      <div class="search-box">
+        <input type="text" placeholder="Buscar álbuns, mangás, cards..." />
+        <button>Buscar</button>
+      </div>
+
+      <a href="#" class="btn">Minha Conta</a>
+    </div>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Álbuns</a></li>
+        <li><a href="#">Figurinhas</a></li>
+        <li><a href="#">Mangás</a></li>
+        <li><a href="#">Cards</a></li>
+        <li><a href="#">Lançamentos</a></li>
+        <li><a href="#">Promoções</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Complete sua coleção com estilo</h1>
+          <p>Álbuns, cromos, mangás e cards colecionáveis em uma loja visual, moderna e fácil de navegar.</p>
+          <a href="#produtos" class="btn">Ver lançamentos</a>
+        </div>
+
+        <div class="hero-card">
+          <div class="fake-img"></div>
+          <h3>Álbum Especial 2026</h3>
+          <p>Edição limitada para colecionadores.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>Categorias</h2>
+      </div>
+
+      <div class="categories">
+        <div class="category">
+          <h3>Álbuns</h3>
+          <p>Os principais lançamentos para completar sua coleção.</p>
+        </div>
+        <div class="category">
+          <h3>Mangás</h3>
+          <p>Volumes especiais, box e coleções completas.</p>
+        </div>
+        <div class="category">
+          <h3>Cards</h3>
+          <p>Boosters, caixas e itens para jogadores e fãs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="produtos">
+      <div class="section-title">
+        <h2>Lançamentos</h2>
+      </div>
+
+      <div class="products">
+        <article class="product-card">
+          <span class="badge">Novo</span>
+          <div class="product-img">📘</div>
+          <div class="product-info">
+            <h3>Álbum Colecionável Mundial</h3>
+            <p>Produto oficial para fãs e colecionadores.</p>
+            <div class="price">R$ 39,90</div>
+            <button class="buy-btn">Comprar</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="badge">Top</span>
+          <div class="product-img">🎴</div>
+          <div class="product-info">
+            <h3>Pacote de Figurinhas Sortidas</h3>
+            <p>Envelope com cromos aleatórios para completar seu álbum.</p>
+            <div class="price">R$ 6,90</div>
+            <button class="buy-btn">Comprar</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="badge">Oferta</span>
+          <div class="product-img">📚</div>
+          <div class="product-info">
+            <h3>Mangá Edição Especial Vol. 1</h3>
+            <p>Capa premium e acabamento de colecionador.</p>
+            <div class="price">R$ 29,90</div>
+            <button class="buy-btn">Comprar</button>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="badge">Novo</span>
+          <div class="product-img">🃏</div>
+          <div class="product-info">
+            <h3>Booster Pack Cards Battle</h3>
+            <p>Cards raros, comuns e especiais em cada pacote.</p>
+            <div class="price">R$ 19,90</div>
+            <button class="buy-btn">Comprar</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <h2>Receba novidades primeiro</h2>
+      <p>Cadastre seu e-mail para receber lançamentos, promoções e itens exclusivos.</p>
+      <form>
+        <input type="email" placeholder="Digite seu e-mail" />
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 GeekFigurinhas. Projeto fictício para estudos em HTML e CSS.</p>
+  </footer>
+</body>
+</html>
