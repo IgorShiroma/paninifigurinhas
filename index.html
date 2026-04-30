@@ -214,6 +214,21 @@
       align-items: center;
       justify-content: center;
     }
+.album-real {
+  width: 390px;
+  max-width: 80%;
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 30px 35px rgba(0,0,0,0.28));
+}
+
+.pacote-real {
+  position: absolute;
+  width: 160px;
+  right: 30px;
+  bottom: 45px;
+  transform: rotate(9deg);
+  filter: drop-shadow(0 18px 25px rgba(0,0,0,0.25));
+}
 
     .album-card {
       width: min(390px, 88vw);
@@ -601,7 +616,7 @@
         <div class="logo-mark">
   <img src="logo.webp" alt="Panini">
 </div>
-<span>Panini</span>
+<span>Panini/span>
       </div>
 
       <div class="header-actions">
@@ -635,12 +650,9 @@
         </div>
 
         <div class="product-showcase">
-          <div class="album-card">
-            <div class="album-top">Edição Especial</div>
-            <h2>World<br>Sticker<br>Album</h2>
-            <div class="ball"></div>
-          </div>
-          <div class="sticker-pack">Pacote de Figurinhas<br><br>5 cromos por envelope</div>
+  <img class="album-real" src="album.png" alt="Álbum Panini">
+<img class="pacote-real" src="figurinhas.png" alt="Pacote de figurinhas">
+</div>
         </div>
       </div>
     </section>
