@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho | Panini</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f7fb;
+      margin: 0;
+      padding: 40px;
+      color: #111;
+    }
+
+    .cart-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      color: #e30613;
+      margin-bottom: 20px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+      font-weight: bold;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 24px;
+      font-weight: 900;
+      margin: 25px 0;
+      color: #e30613;
+    }
+
+    .checkout {
+      display: block;
+      text-align: center;
+      background: #19b84a;
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .back {
+      display: block;
+      margin-top: 18px;
+      text-align: center;
+      color: #333;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-box">
+    <h1>Seu Carrinho</h1>
+
+    <div class="item">
+      <span>Kit Álbum Mundial 2026</span>
+      <span>R$ 79,90</span>
+    </div>
+
+    <div class="total">
+      <span>Total</span>
+      <span>R$ 79,90</span>
+    </div>
+
+    <a href="#" class="checkout">Finalizar pagamento</a>
+    <a href="index.html" class="back">Voltar para a loja</a>
+  </div>
+</body>
+</html>
