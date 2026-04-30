@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Álbum Mundial 2026 | Oferta Especial</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f6f7fb;
+      color: #111;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .top-alert {
+      background: #0057b8;
+      color: #fff;
+      text-align: center;
+      padding: 11px 16px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-content {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 900;
+      color: #e30613;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ffd400, #ff8a00);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e30613;
+      font-weight: 900;
+      border: 3px solid #e30613;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cart {
+      background: #f2f2f2;
+      padding: 10px 14px;
+      border-radius: 999px;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, #ffd447 0, #ffcb05 24%, #f6f7fb 25%, #f6f7fb 100%);
+      padding: 48px 20px 32px;
+    }
+
+    .hero-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 0.98;
+      color: #062b66;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-copy .subtitle {
+      font-size: 20px;
+      line-height: 1.45;
+      color: #333;
+      margin-bottom: 20px;
+      max-width: 590px;
+    }
+
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e30613;
+      color: #fff;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .checks {
+      display: grid;
+      gap: 9px;
+      margin: 22px 0;
+      color: #222;
+      font-weight: 700;
+    }
+
+    .checks span::before {
+      content: "✓";
+      color: #0a9f45;
+      margin-right: 8px;
+      font-weight: 900;
+    }
+
+    .price-box {
+      background: #fff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+      max-width: 450px;
+      border: 1px solid #eee;
+    }
+
+    .old-price {
+      color: #777;
+      font-size: 16px;
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .new-price {
+      color: #e30613;
+      font-size: 43px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .installments {
+      color: #333;
+      font-size: 15px;
+      margin: 6px 0 16px;
+    }
+
+    .cta {
+      display: block;
+      width: 100%;
+      background: #19b84a;
+      color: #fff;
+      text-align: center;
+      padding: 17px 18px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+      box-shadow: 0 8px 0 #0b7f2d;
+      transition: 0.15s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(2px);
+      box-shadow: 0 5px 0 #0b7f2d;
+    }
+
+    .secure {
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      margin-top: 14px;
+      font-weight: 700;
+    }
+
+    .product-showcase {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .album-card {
+      width: min(390px, 88vw);
+      min-height: 500px;
+      background: linear-gradient(145deg, #0b55b7 0%, #0b2f7d 48%, #e30613 49%, #b90510 100%);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.28);
+      transform: rotate(-4deg);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      border: 8px solid #fff;
+    }
+
+    .album-card::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      top: -80px;
+      right: -90px;
+    }
+
+    .album-card::after {
+      content: "2026";
+      position: absolute;
+      bottom: 20px;
+      right: 22px;
+      font-size: 54px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.18);
+    }
+
+    .album-top {
+      background: #ffd400;
+      color: #e30613;
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 900;
+      margin-bottom: 28px;
+    }
+
+    .album-card h2 {
+      font-size: 42px;
+      line-height: 0.95;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 24px;
+    }
+
+    .ball {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0 36%, #111 37% 42%, #fff 43% 60%, #111 61% 66%, #fff 67%);
+      margin: 30px auto 0;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.28);
+    }
+
+    .sticker-pack {
+      position: absolute;
+      bottom: 40px;
+      right: 8px;
+      width: 150px;
+      height: 210px;
+      background: linear-gradient(150deg, #ffd400, #ff8a00);
+      border-radius: 16px;
+      border: 5px solid #fff;
+      transform: rotate(9deg);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+      padding: 14px;
+      color: #0b2f7d;
+      font-weight: 900;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-transform: uppercase;
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 46px 20px;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .title h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      color: #062b66;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .title p {
+      color: #555;
+      font-size: 17px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: #fff;
+      padding: 26px;
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+      text-align: center;
+      border: 1px solid #eee;
+    }
+
+    .feature-icon {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      color: #062b66;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .offer {
+      background: #062b66;
+      color: #fff;
+      border-radius: 26px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: center;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.2);
+    }
+
+    .offer h2 {
+      font-size: 36px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .offer p {
+      color: #d8e6ff;
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    .bonus-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bonus {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 15px;
+      border-radius: 14px;
+      font-weight: 800;
+    }
+
+    .bonus::before {
+      content: "🎁";
+      margin-right: 8px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.09);
+      border: 1px solid #eee;
+    }
+
+    .product-img {
+      height: 220px;
+      background: linear-gradient(145deg, #ffd400, #e30613);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 78px;
+    }
+
+    .product-body {
+      padding: 20px;
+    }
+
+    .product-body h3 {
+      font-size: 20px;
+      color: #062b66;
+      margin-bottom: 8px;
+    }
+
+    .product-body p {
+      color: #666;
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .product-price {
+      color: #e30613;
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .faq {
+      max-width: 850px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px 20px;
+      box-shadow: 0 5px 16px rgba(0,0,0,0.06);
+      border: 1px solid #eee;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      color: #062b66;
+      font-size: 17px;
+    }
+
+    details p {
+      margin-top: 12px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .final-cta {
+      background: linear-gradient(135deg, #e30613, #ff7a00);
+      color: #fff;
+      text-align: center;
+      padding: 46px 20px;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .final-cta p {
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .final-cta .cta {
+      max-width: 430px;
+      margin: 0 auto;
+      background: #19b84a;
+    }
+
+    footer {
+      background: #111;
+      color: #ddd;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-wrap,
+      .offer {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .price-box {
+        margin: 0 auto;
+      }
+
+      .checks {
+        text-align: left;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .features,
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-showcase {
+        min-height: 460px;
+      }
+
+      .album-card {
+        min-height: 440px;
+      }
+
+      .sticker-pack {
+        right: 18px;
+        bottom: 18px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .top-alert {
+        font-size: 12px;
+      }
+
+      .header-content {
+        flex-direction: column;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      .hero-copy .subtitle {
+        font-size: 17px;
+      }
+
+      .price-box {
+        padding: 18px;
+      }
+
+      .new-price {
+        font-size: 36px;
+      }
+
+      .album-card h2 {
+        font-size: 34px;
+      }
+
+      .ball {
+        width: 120px;
+        height: 120px;
+      }
+
+      .sticker-pack {
+        width: 125px;
+        height: 175px;
+        font-size: 13px;
+      }
+
+      .offer {
+        padding: 26px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-alert">Oferta especial por tempo limitado — álbum + envelopes promocionais</div>
+
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-mark">GF</div>
+        <span>Geek Figurinhas</span>
+      </div>
+
+      <div class="header-actions">
+        <span>Atendimento</span>
+        <span class="cart">🛒 Carrinho</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-wrap">
+        <div class="hero-copy">
+          <div class="tagline">🔥 Pré-venda exclusiva 2026</div>
+          <h1>Álbum Mundial 2026</h1>
+          <p class="subtitle">Garanta agora o álbum de figurinhas mais esperado do ano com kit promocional, envio rápido e compra segura.</p>
+
+          <div class="checks">
+            <span>Produto novo, lacrado e pronto para coleção</span>
+            <span>Envio para todo o Brasil com rastreamento</span>
+            <span>Pagamento seguro no cartão ou Pix</span>
+          </div>
+
+          <div class="price-box">
+            <div class="old-price">De R$ 129,90</div>
+            <div class="new-price">R$ 79,90</div>
+            <div class="installments">ou em até 10x sem complicação</div>
+            <a class="cta" href="#comprar">Comprar agora</a>
+            <div class="secure">🔒 Compra 100% segura | Estoque limitado</div>
+          </div>
+        </div>
+
+        <div class="product-showcase">
+          <div class="album-card">
+            <div class="album-top">Edição Especial</div>
+            <h2>World<br>Sticker<br>Album</h2>
+            <div class="ball"></div>
+          </div>
+          <div class="sticker-pack">Pacote de Figurinhas<br><br>5 cromos por envelope</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="title">
+        <h2>Por que garantir agora?</h2>
+        <p>Uma página de venda simples, direta e com foco em conversão.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🚚</div>
+          <h3>Envio rápido</h3>
+          <p>Pedido separado com cuidado e rastreamento enviado após a confirmação.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⭐</div>
+          <h3>Kit promocional</h3>
+          <p>Compre o álbum junto com envelopes e comece sua coleção imediatamente.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔐</div>
+          <h3>Compra segura</h3>
+          <p>Layout pensado para transmitir confiança, urgência e clareza ao cliente.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="offer">
+        <div>
+          <h2>Oferta do Kit Colecionador</h2>
+          <p>Ideal para quem quer começar a coleção com o álbum e uma quantidade inicial de envelopes. Visual premium, destaque de preço e chamada direta para compra.</p>
+        </div>
+
+        <div class="bonus-list">
+          <div class="bonus">Álbum capa brochura edição 2026</div>
+          <div class="bonus">Pacote promocional com envelopes</div>
+          <div class="bonus">Brinde simbólico para primeiros compradores</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="comprar">
+      <div class="title">
+        <h2>Escolha seu produto</h2>
+        <p>Cards simples para vender álbum, envelopes e kit completo.</p>
+      </div>
+
+      <div class="products">
+        <article class="product">
+          <div class="product-img">📘</div>
+          <div class="product-body">
+            <h3>Álbum Mundial 2026</h3>
+            <p>Álbum físico para iniciar sua coleção.</p>
+            <div class="product-price">R$ 39,90</div>
+            <a class="cta" href="#">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-img">🎴</div>
+          <div class="product-body">
+            <h3>Pack de Envelopes</h3>
+            <p>Pacote com envelopes de figurinhas sortidas.</p>
+            <div class="product-price">R$ 49,90</div>
+            <a class="cta" href="#">Comprar</a>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-img">🏆</div>
+          <div class="product-body">
+            <h3>Kit Completo</h3>
+            <p>Álbum + envelopes para começar com vantagem.</p>
+            <div class="product-price">R$ 79,90</div>
+            <a class="cta" href="#">Comprar</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="title">
+        <h2>Dúvidas frequentes</h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>O produto é oficial?</summary>
+          <p>Este é um modelo fictício para estudo. Você pode alterar textos, nome da loja, valores e imagens conforme seu projeto.</p>
+        </details>
+
+        <details>
+          <summary>Posso colocar imagens reais?</summary>
+          <p>Sim. Basta substituir os blocos ilustrativos por imagens usando a tag &lt;img&gt; e ajustar o CSS.</p>
+        </details>
+
+        <details>
+          <summary>Funciona no celular?</summary>
+          <p>Sim. O layout foi feito de forma responsiva para se adaptar a telas menores.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Garanta seu kit agora</h2>
+      <p>Oferta especial por tempo limitado. Clique abaixo para finalizar seu pedido.</p>
+      <a class="cta" href="#comprar">Comprar com desconto</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Geek Figurinhas. Projeto fictício para fins de estudo em HTML e CSS.</p>
+  </footer>
+</body>
+</html>
